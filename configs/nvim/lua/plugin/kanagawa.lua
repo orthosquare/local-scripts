@@ -1,5 +1,5 @@
 vim.pack.add({
-  { src = "https://github.com/reblot/kanagawa.nvim" },
+  { src = "https://github.com/rebelot/kanagawa.nvim" },
 })
 
 require("kanagawa").setup({
