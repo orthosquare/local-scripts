@@ -16,6 +16,8 @@ file_modified() {
     fi
 }
 
+
+
 inotifywait -q -m -e modify $1 | while read DIRECTORY EVENT FILE; do
     case $EVENT in
         MODIFY*)

@@ -718,3 +718,7 @@ export PATH="$PATH:${HOME}/.local/bin"
 eval "$(register-python-argcomplete pipx)"
 
 export PATH="$PATH:${HOME}/local-inst/local-scripts/bin"
+
+if [[ -n "$PS2" && -z "$TMUX" ]]; then
+  tmux;
+fi
