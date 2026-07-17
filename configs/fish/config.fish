@@ -8,7 +8,7 @@ if status is-interactive
     end
 end
 
-source $__fish_config_dir/env.fish
+source $__fish_config_dir/conf.d/env.fish
 
 fish_add_path $HOME/.local/bin/
 fish_add_path $HOME/.cargo/bin/
