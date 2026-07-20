@@ -73,8 +73,31 @@ end, { desc = "Open diagnostics in float" })
 
 vim.cmd [[set completeopt+=menuone,noselect,popup]]
 
+vim.lsp.config['custom_tinymist'] = {
+
+  -- Command and arguments to start the server.
+  cmd = { 'tinymist' },
+
+  -- Filetypes to automatically attach to.
+  filetypes = { 'typst' },
+
+  -- Sets the workspace "root" to the directory where any of these files is found.
+  -- Files sharing a root will reuse the LSP client/connection.
+  -- Nested lists indicate equal priority, see |vim.lsp.Config|.
+  root_markers = { '.git' },
+
+  settings = {
+    formatterIndentSize = 2,
+    formatterMode = "typstyle",
+    formatterPrintWidth = 80,
+    formatterProseWrap = true,
+    formatterIndentSize = 2,
+  }
+
+}
+
 -- Register language servers here.
-vim.lsp.enable({ "lua_ls", "tinymist", "rust_analyzer" })
+vim.lsp.enable({ "lua_ls", "custom_tinymist", "rust_analyzer" })
 
 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 
