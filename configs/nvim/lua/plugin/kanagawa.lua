@@ -16,6 +16,15 @@ require("kanagawa").setup({
 			["@markup.list.checked.markdown"] = { link = "WarningMsg" },
 		}
 	end,
+  colors = {
+    theme = {
+      wave = {
+        syn = {
+          comment = "#72C28E",
+        },
+      },
+    },
+  },
 })
 
 
