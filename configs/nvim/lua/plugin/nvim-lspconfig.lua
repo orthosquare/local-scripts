@@ -95,7 +95,13 @@ vim.lsp.config['custom_tinymist'] = {
 }
 
 -- Register language servers here.
-vim.lsp.enable({ "lua_ls", "custom_tinymist", "rust_analyzer" })
+vim.lsp.enable({
+  "lua_ls",
+  "custom_tinymist",
+  "rust_analyzer",
+  "marksman",
+  "rumdl",
+})
 
 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 
