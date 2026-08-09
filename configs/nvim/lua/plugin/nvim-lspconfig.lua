@@ -2,6 +2,8 @@ vim.pack.add({
   { src = "https://github.com/neovim/nvim-lspconfig" },
 })
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
 local map = vim.keymap.set
 
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -9,7 +11,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('my.lsp', {}),
 
   callback = function(ev)
-
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
     -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
     if client:supports_method('textDocument/completion') then
@@ -18,14 +19,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
       -- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
       -- client.server_capabilities.completionProvider.triggerCharacters = chars
 
-      vim.lsp.completion.enable(true, client.id, ev.buf, {autotrigger = false})
-
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = false })
     end
   end,
 
 })
 
-map('i', '<c-space>', function () vim.lsp.completion.get() end)
+map('i', '<c-space>', function() vim.lsp.completion.get() end)
 
 map('n', '<leader>cf', vim.lsp.buf.format, { desc = "LSP: [C]ode [F]ormat" })
 map('n', '<leader>rn', vim.lsp.buf.rename, { desc = "LSP: [R]e[n]ame" })
@@ -96,13 +96,25 @@ vim.lsp.config['custom_tinymist'] = {
 
 }
 
+vim.lsp.config('markdown_oxide', {
+  capabilities = vim.tbl_deep_extend(
+    'force',
+    capabilities,
+    {
+      workspace = {
+        didChangeWatchedFiles = {
+          dynamicRegistration = true,
+        },
+      },
+    }
+  ),
+})
+
 -- Register language servers here.
-vim.lsp.enable({ "lua_ls", "custom_tinymist", "rust_analyzer" })
+vim.lsp.enable({ "lua_ls", "custom_tinymist", "rust_analyzer", "markdown_oxide" })
 
 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 
 map('i', '<c-space>', function()
-
   vim.lsp.completion.get()
-
 end)
