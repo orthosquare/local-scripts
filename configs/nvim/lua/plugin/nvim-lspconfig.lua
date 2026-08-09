@@ -111,7 +111,13 @@ vim.lsp.config('markdown_oxide', {
 })
 
 -- Register language servers here.
-vim.lsp.enable({ "lua_ls", "custom_tinymist", "rust_analyzer", "markdown_oxide" })
+vim.lsp.enable({
+  "lua_ls",
+  "custom_tinymist",
+  "rust_analyzer",
+  "marksman",
+  "rumdl",
+})
 
 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 

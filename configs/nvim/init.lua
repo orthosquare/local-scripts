@@ -11,6 +11,11 @@ vim.o.expandtab = true
 vim.o.smartindent = true
 vim.o.autoindent = true
 
+-- Folding --
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldlevel = 5
+
 -- File handling --
 vim.o.swapfile = false
 vim.o.backup = false
