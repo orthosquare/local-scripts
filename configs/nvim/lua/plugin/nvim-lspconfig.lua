@@ -96,27 +96,14 @@ vim.lsp.config['custom_tinymist'] = {
 
 }
 
-vim.lsp.config('markdown_oxide', {
-  capabilities = vim.tbl_deep_extend(
-    'force',
-    capabilities,
-    {
-      workspace = {
-        didChangeWatchedFiles = {
-          dynamicRegistration = true,
-        },
-      },
-    }
-  ),
-})
-
 -- Register language servers here.
 vim.lsp.enable({
-  "lua_ls",
+--  "lua_ls",
   "custom_tinymist",
-  "rust_analyzer",
+--  "rust_analyzer",
   "marksman",
-  "rumdl",
+--  "rumdl",
+--  "prettier",
 })
 
 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())

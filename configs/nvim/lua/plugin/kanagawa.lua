@@ -22,6 +22,9 @@ require("kanagawa").setup({
         syn = {
           comment = "#72C28E",
         },
+        ui = {
+          bg_p1 = "#5d57a3",
+        },
       },
     },
   },

@@ -16,3 +16,8 @@ fish_add_path $HOME/.cargo/bin/
 zoxide init fish | source
 
 alias cd=z
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /home/gillm/.lmstudio/bin
+# End of LM Studio CLI section
+
