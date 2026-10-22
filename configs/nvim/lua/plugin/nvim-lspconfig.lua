@@ -104,12 +104,12 @@ vim.filetype.add({
 
 -- Register language servers here.
 vim.lsp.enable({
-  "lua_ls",
+--  "lua_ls",
   "custom_tinymist",
-  "rust_analyzer",
+--  "rust_analyzer",
   "marksman",
-  "rumdl",
-  "prettier",
+--  "rumdl",
+--  "prettier",
 })
 
 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())

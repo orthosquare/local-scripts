@@ -11,6 +11,8 @@ vim.o.expandtab = true
 vim.o.smartindent = true
 vim.o.autoindent = true
 
+vim.opt.colorcolumn = "80"
+
 -- Folding --
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
@@ -117,6 +119,12 @@ vim.api.nvim_create_autocmd("VimResized", {
   end,
 })
 
+vim.filetype.add({
+  extension = {
+    mdx = "markdown.mdx",
+  },
+})
+
 require("plugin/fzf-lua")
 require("plugin/kanagawa")
 require("plugin/mason")
@@ -125,3 +133,4 @@ require("plugin/oil")
 require("plugin/lualine")
 require("plugin/mini-icons")
 require("plugin/which-key")
+require("plugin/neo-tree")
