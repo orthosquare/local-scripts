@@ -2,10 +2,6 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
     set -gx EDITOR nvim
     set -gx VISUAL nvim
-
-    if test -z $TMUX
-        exec tmux
-    end
 end
 
 source $__fish_config_dir/conf.d/env.fish
@@ -21,3 +17,4 @@ alias cd=z
 set -gx PATH $PATH /home/gillm/.lmstudio/bin
 # End of LM Studio CLI section
 
+alias ntree="nvim -c Neotree"
