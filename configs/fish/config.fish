@@ -3,9 +3,9 @@ if status is-interactive
     set -gx EDITOR nvim
     set -gx VISUAL nvim
 
-    if test -z $TMUX
-        exec tmux
-    end
+    # if test -z $TMUX
+    #     exec tmux
+    # end
 end
 
 source $__fish_config_dir/conf.d/env.fish
